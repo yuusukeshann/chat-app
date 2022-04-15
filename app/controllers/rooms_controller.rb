@@ -1,8 +1,7 @@
 class RoomsController < ApplicationController
   
   def index
-    @room = Room.new
-
+    
   end
   
   def new
@@ -16,6 +15,12 @@ class RoomsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    room = Room.find(params[:id])
+    room.destroy
+    redirect_to root_path
   end
 
   private
